@@ -1,0 +1,40 @@
+{
+  "name": "@0x706b/ts-transform-esm-specifier",
+  "version": "0.1.5",
+  "description": "",
+  "main": "build/index.js",
+  "files": [
+    "build/**/*"
+  ],
+  "scripts": {
+    "clean": "rimraf build",
+    "build": "ttsc",
+    "test": "ttsc -p tests/tsconfig.json && node tests/build/index.js",
+    "prepublish": "yarn clean && yarn build"
+  },
+  "keywords": [],
+  "author": "Peter Krol <peter@peterkrol.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@0x706b/ts-transform-cjs-import": "^0.1.3",
+    "@types/node": "^14.0.14",
+    "@typescript-eslint/eslint-plugin": "^3.4.0",
+    "@typescript-eslint/parser": "^3.4.0",
+    "eslint": "^7.3.1",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.1",
+    "eslint-plugin-typescript-sort-keys": "^1.2.0",
+    "fast-deep-equal": "^3.1.3",
+    "fp-ts": "^2.6.6",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.10.2",
+    "ttypescript": "^1.5.10",
+    "typescript": "^3.9.5"
+  },
+  "peerDependencies": {
+    "fp-ts": "^2.6.6"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
+}

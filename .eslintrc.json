@@ -1,0 +1,75 @@
+{
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2019,
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+       "@typescript-eslint",
+       "sort-imports-es6-autofix",
+       "sort-keys-fix",
+       "typescript-sort-keys"
+    ],
+    "rules": {
+        "sort-imports-es6-autofix/sort-imports-es6": ["warn", {
+           "memberSyntaxSortOrder": ["none", "all", "single", "multiple"]
+        }],
+        "sort-keys-fix/sort-keys-fix": ["warn", "asc"],
+        "typescript-sort-keys/interface": "warn",
+        "typescript-sort-keys/string-enum": "warn",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "warn",
+            {
+                "argsIgnorePattern": "^_",
+                "varsIgnorePattern": "^ignored?$"
+            }
+        ],
+        "@typescript-eslint/ban-ts-ignore": "off",
+        "@typescript-eslint/member-delimiter-style": ["warn", {
+           "multiline": {
+              "delimiter": "semi"
+           },
+           "singleline": {
+              "delimiter": "semi"
+           }
+        }],
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/indent": ["error", 3],
+        "@typescript-eslint/quotes": ["error", "double"],
+        "no-param-reassign": ["error"],
+        "max-len": ["error", { "code": 150 }],
+        "indent": "off",
+        "quotes": "off",
+        "semi": ["error", "always"],
+        "comma-dangle": ["error", "never"],
+        "object-curly-spacing": ["error", "always"],
+        "array-bracket-spacing": ["error", "always",
+           {
+              "singleValue": false,
+              "objectsInArrays": false,
+              "arraysInArrays": false
+           }
+        ],
+        "arrow-parens": ["error", "as-needed"],
+        "linebreak-style": 0,
+        "multiline-ternary": ["warn", "always-multiline"],
+        "multiline-comment-style": ["warn", "starred-block"],
+        "key-spacing": ["error"]
+    }
+}
