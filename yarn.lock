@@ -2,17 +2,18 @@
 # yarn lockfile v1
 
 
-"@0x706b/ts-transform-cjs-import@^0.1.3":
-  version "0.1.3"
-  resolved "https://npm.pkg.github.com/download/@0x706b/ts-transform-cjs-import/0.1.3/78a2cbd6cbf1edef63205f8a5ca62b327b2dd15472c8f6e344556691f1769397#7fb6657c6250864c4a4d43a187276650f9efdac3"
-  integrity sha512-1/3w7pkyN7U0WBHpxs+7rvdojT8kjys9Xpn3s+UIZCwUw6MLwAfzuTuAZxA4bGuX8/J4yCzDhGBGLcL5JBoyFw==
+"@0x706b/ts-transform-cjs-import@^0.1.4":
+  version "0.1.4"
+  resolved "https://npm.pkg.github.com/download/@0x706b/ts-transform-cjs-import/0.1.4/44af74ceded11c318fec9020705b862972cdfce40e3a64fc146a4b43681c9e09#adc7214c13ecf75475234b7310da154bc13e9759"
+  integrity sha512-3SerEQUDRIp1IY9siTuIB1T/dOIuEN0zIEqZtg+YedxPHXNkIQWvs+e3fnaSlwhuR1MG6mI/5Z3tmYbd8WYV6w==
 
-"@0x706b/ts-utils@^1.0.2":
-  version "1.0.2"
-  resolved "https://npm.pkg.github.com/download/@0x706b/ts-utils/1.0.2/13e1d68adb31811b2d65b1cf44259d9cd5e17b996c0d61964faa906e1eecc314#a4dfa50b6acdda11c1a7b78f121cd2d71c968bd2"
-  integrity sha512-8z9CTZ95BKie0+umygcGO7OhHO0LyReskfUe8NLt9TmuyDFgBJLFMWIlCzxpvTVVPEOpI0nK6mK7c++JUGWHww==
+"@0x706b/ts-utils@^1.4.1":
+  version "1.4.1"
+  resolved "https://npm.pkg.github.com/download/@0x706b/ts-utils/1.4.1/8b449500661dbe00db605049a7c9fb0d31c24fd77973863aaf9aa82e09b14b56#58325dcb54e7db2c4e91a6643a958c4bfddfb7c9"
+  integrity sha512-M4lpHRrVhBghqsI9sLs+bLqQG93lOXH1OYSpb3s/b5N1HZn7XmTH6VfnRlNsBh82jRgvO1cKf+3pJm4Kzgnt2A==
   dependencies:
     fp-ts "^2.6.6"
+    uuid "^8.2.0"
 
 "@babel/code-frame@^7.0.0":
   version "7.10.3"
@@ -34,6 +35,14 @@
     "@babel/helper-validator-identifier" "^7.10.3"
     chalk "^2.0.0"
     js-tokens "^4.0.0"
+
+"@matechs/core@^2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@matechs/core/-/core-2.8.0.tgz#a6353e8aaeaef2980b432233b0753cb1da95cd73"
+  integrity sha512-jQ7Z4GwrEUEY9IaC4oDNi45vlTXOZTRJpYHuLVkdJdG1+qp5Vq1iSvdiH6gR/P1TRAvpT8Ag2BXxEA4imtGg+A==
+  dependencies:
+    fp-ts "2.6.3"
+    fp-ts-contrib "^0.1.15"
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
@@ -600,6 +609,16 @@ flatted@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.2.tgz#4575b21e2bcee7434aa9be662f4b7b5f9c2b5138"
   integrity sha512-r5wGx7YeOwNWNlCA0wQ86zKyDLMQr+/RB8xy74M4hTphfmjlijTSSXGuH8rnvKZnfT9i+75zmd8jcKdMR4O6jA==
+
+fp-ts-contrib@^0.1.15:
+  version "0.1.17"
+  resolved "https://registry.yarnpkg.com/fp-ts-contrib/-/fp-ts-contrib-0.1.17.tgz#208ff83b2b457c61f458016e324ff95a5671c0c1"
+  integrity sha512-UBQ7AdGp0GktLkIn3e6npVIfLm1ZM+racizgVqL88j6HBLBoBjRtVjIxRIS6YbNypuP94ngaZpy2SEib9lnZ9A==
+
+fp-ts@2.6.3:
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.6.3.tgz#f08e8b8b13d652ce7f1d4da875cb5d6246109d37"
+  integrity sha512-d/djF6VTApJB9DwD/yec2dlKd7h3oqiOv+6vtBnC1pKbHrhz7aEAGcKd4luraUQDJ3pt3C6W4Npd8s+l5xIquQ==
 
 fp-ts@^2.6.6:
   version "2.6.6"

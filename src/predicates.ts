@@ -1,7 +1,6 @@
 import * as O from "fp-ts/lib/Option";
 import * as fileExtensions from "./file-extensions.json";
 import * as ts from "typescript";
-import fs from "fs";
 import path from "path";
 import { ImportOrExport, WithModuleSpecifier } from "./types";
 import {
@@ -9,7 +8,6 @@ import {
    getPackageJsonForNode,
    getResolvedSpecifier,
    parsePath,
-   resolveFilename,
    sliceResolvedSpecifier
 } from "./helpers";
 import { pipe } from "fp-ts/lib/pipeable";
@@ -19,23 +17,6 @@ export const isImportOrExportDeclaration: (node: ts.Node) => node is ImportOrExp
 
 export const isModuleSpecifierStringLiteral: (node: ImportOrExport) => node is WithModuleSpecifier<ImportOrExport> =
    (node): node is WithModuleSpecifier<ImportOrExport> => !!(node.moduleSpecifier && ts.isStringLiteral(node.moduleSpecifier));
-
-export const isModuleSpecifierPackage: (node: WithModuleSpecifier<ImportOrExport>) => boolean =
-   node => pipe(
-      node,
-      resolveFilename,
-      O.map(p => p.split("/").slice(0, -1).join("/")),
-      O.chain(p => O.tryCatch(() => {
-         fs.lstatSync(path.resolve(p, "package.json")).isFile();
-      })),
-      O.fold(
-         () => false,
-         _ => true
-      )
-   );
-
-export const isModuleSpecifierNotPackageJson: (node: WithModuleSpecifier<ImportOrExport>) => boolean =
-   node => !isModuleSpecifierPackage(node);
 
 export const isModuleSpecifierRelative: (node: WithModuleSpecifier<ImportOrExport>) => boolean =
    node =>
@@ -68,7 +49,7 @@ export const isPackageAndNotImportingMain: (node: WithModuleSpecifier<ImportOrEx
                   ? node.moduleSpecifier.text === json.name
                      ? false
                      : true
-                  : json.main && resolvedSpecifier === path.join(json.name, json.main)
+                  : json.main && json.name && resolvedSpecifier === path.join(json.name, json.main)
                      ? false
                      : true;
             }
@@ -119,6 +100,5 @@ export const doesMatchConditions: (node: ts.Node) => O.Option<WithModuleSpecifie
       O.chain(O.fromPredicate(isModuleSpecifierStringLiteral)),
       O.chain(O.fromPredicate(isResolvedEqualToSpecifier)),
       O.chain(O.fromPredicate(isModuleSpecifierExtensionUnknown)),
-      O.chain(O.fromPredicate(isModuleSpecifierNotPackageJson)),
       O.chain(O.fromPredicate(isPackageAndNotImportingMain))
    );
