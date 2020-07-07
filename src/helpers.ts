@@ -52,7 +52,6 @@ export const getFormattedSpecifier: (sourceFile: ts.SourceFile) => (node: WithMo
             : isModuleSpecifierNotRelative(node)
                ? path.resolve(process.cwd(), "node_modules", node.moduleSpecifier.text)
                : path.resolve(path.parse(sourceFile.fileName).dir, node.moduleSpecifier.text);
-      console.log(node.moduleSpecifier.text);
       return pipe(
          O.tryCatch(
             () => fs.lstatSync(specifierAbsolutePath).isDirectory()
